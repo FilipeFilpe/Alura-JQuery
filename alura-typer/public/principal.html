@@ -3,26 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <title>Alura Typer</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <!-- Seja bem vindo ao curso de jQuery :) -->
-    <h1>Alura Typer</h1>
-    <p class="frase">Esta frase tem seis pelas palavras</p>
+    <div class="container">
+        <!-- Seja bem vindo ao curso de jQuery :) -->
+        <h1 class="center">Alura Typer</h1>
+        <p class="frase center">Esta frase</p>
+    
+        <ul class="informacoes center">
+            <li>
+                <i class="small material-icons icones">description</i>
+                <span id="tamanho-frase">5</span> palavras
+            </li>
+            <li> 
+                <i class="small material-icons icones">access_time</i>       
+                <span id="tempo-digitacao">5</span> segundos
+            </li>
+        </ul>
+    
+        <textarea class="campo-digitacao" rows="8" col="40"></textarea>
+        <!-- <button id="botao-reiniciar">Reiniciar Jogo</button> -->
 
-    <ul class="informacoes">
-        <li><span id="tamanho-frase">5</span> palavras</li>
-        <li>10 segundos</li>
-    </ul>
+        <div class="botoes">
+            <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red">
+                <i class="material-icons">restore</i>button
+            </a>
+        </div>
+    
+        <ul class="center">
+            <li><span id="contador-caracteres">0</span> caracteres</li>
+            <li><span id="contador-palavras">0</span>  palavras</li>
+        </ul>
 
-    <textarea class="campo-digitacao" rows="8" col="40"></textarea>
-
-    <ul>
-        <li><span id="contador-caracteres">0</span> caracteres</li>
-        <li><span id="contador-palavras">0</span>  palavras</li>
-    </ul>
+        <section class="placar">
+            <h3 class="center">Placar</h3>
+            <table class="centered bordered">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Nº de Palavras</th>
+                        <th>Remover</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Filipe</td>
+                        <td>10</td>
+                        <td><a href="#" class="botao-remover">
+                                <i class="small material-icons">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
 
     <script src="js/jquery.js"></Script>
     <script src="js/main.js"></Script>
+    <script src="js/placar.js"></Script>
         
 </body>
 </html>
