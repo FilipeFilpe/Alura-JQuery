@@ -1,3 +1,6 @@
+
+$("#botao-placar").click(mostraPlacar);
+
 function inserePlacar() {
     var corpoTabela = $(".placar").find("tbody");
     var usuario = "Filipe"
@@ -7,8 +10,19 @@ function inserePlacar() {
     var linha = novaLinha(usuario,numPalavras);
     linha.find(".botao-remover").click(removeLinha);
 
-    corpoTabela.append(linha);
+    corpoTabela.prepend(linha);
+    $(".placar").slideDown(500);
+    scrollPlacar();
 }
+
+function scrollPlacar() {
+    var posicaoPlacar = $(".placar").offset().top;
+    $("body").animate(
+    {
+        scrollTop: posicaoPlacar + "px"
+    }, 1000);
+}
+
 
 function novaLinha(usuario,palavras){
     var linha = $("<tr>");
@@ -28,4 +42,17 @@ function novaLinha(usuario,palavras){
     linha.append(colunaRemover);
 
     return linha;
+}
+
+function removeLinha(event){
+    event.preventDefault();
+    var linha =  $(this).parent().parent();
+    linha.fadeOut(); // faz sumir a linha
+    setTimeout(function () { // remove a linha depois de um segundo
+        linha.remove();
+    }, 1000);
+}
+
+function mostraPlacar() {
+    $(".placar").stop().slideToggle(600); // faz o placar desaparecer e aparecer em 600 milissegundos
 }

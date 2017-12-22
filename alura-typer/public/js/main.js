@@ -67,11 +67,6 @@ function inicializaMarcadores() {
     });    
 }
 
-function removeLinha(event){
-    event.preventDefault();
-    $(this).parent().parent().remove();
-}
-
 function reiniciaJogo() {
     campo.attr("disabled", false);
     campo.val("");
